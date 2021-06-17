@@ -7,11 +7,11 @@ const Card = ()=>{
     
     useEffect(()=>{
         const pega = async () => {
-            const resposta = await fetch('https://anapioficeandfire.com/api/characters')
+            const resposta = await fetch('https://www.anapioficeandfire.com/api/characters?page=1&pageSize=50')
             const dados = await resposta.json()
-            //console.log(dados)
+            console.log(dados)
             setPersonagem(dados)
-            //console.log(dados)
+            
 
         }
         pega()    
@@ -19,7 +19,11 @@ const Card = ()=>{
 
     return(
         <ul>
-            <li>alguma coisa</li>
+            {personagens.map(houses =>(
+                <li key={houses.url}>{houses.name}
+                    <li>{}</li>
+                </li>
+            ))}
         </ul>
     )
 
